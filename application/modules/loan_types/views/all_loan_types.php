@@ -53,7 +53,7 @@
 <table class="table table-sm table-condensed table-striped table-sm table-bordered">
 	<tr>
 		<th>#</th>
-		<th>Loan Name</th>
+		<th>Loans Name</th>
 		<th>Status</th>
 		<th>Max Amount</th>
 		<th>Min Amount</th>
