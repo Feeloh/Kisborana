@@ -11,7 +11,7 @@
 				<input type="number" name="maximum_loan_amount" class="form-control">
 			</div>
 			<div class="form-group col-md-3">
-				<label for='minimum_loan_amount'>Minimum loan amount: </label>
+				<label for='minimum_loan_amount'>Minimum loan amoun: </label>
 				<input type="number" name="minimum_loan_amount" class="form-control">
 			</div>
 			<div class="form-group col-md-3">
