@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
+	'username' => 'kisborana@nanyukiappfactory-mysqldbserver',
+	'password' => 'kisborana098',
 	'database' => 'kisborana',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
