@@ -59,6 +59,7 @@
             
             <div>   
             <?php echo anchor("saving_type/new_saving_type", "Add Saving Type", array("class"=>"btn btn-primary btn-sm")); ?>
+            
             <?php echo anchor("saving_type/import", "Import Saving Types", array("class"=>"btn btn-success btn-sm")); ?>  
             </div>
 
@@ -96,7 +97,7 @@
 
 
                  <tr>
-                <!-- <td><input type="checkbox" class="sub_chk" data-id="<?php //echo $delete ?>"></td> -->
+                
                  <td>
                         <?php echo $count; ?>
                  </td>
@@ -155,7 +156,7 @@
                                 if ($check == 0) {
                                  echo "<button class='badge badge-danger far fa-thumbs-down'> Inactive</button>";
                                 } else {
-                                 echo "<button class='badge badge-success far fa-thumbs-down'> Active</button>";
+                                 echo "<button class='badge badge-success far fa-thumbs-up'> Active</button>";
                                 }
                                 ?>
 
