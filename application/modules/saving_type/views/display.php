@@ -1,3 +1,5 @@
+<div class="card">
+        <div class="card-body">
 <div class="table-responsive">
     <table class="table table-hover tablesorter">
         <thead>
@@ -30,4 +32,6 @@
     </table>
     <?php echo anchor("saving_type/saving_type", "Back", array("class"=>"btn btn-primary btn-sm")); ?><br></br>
 
+</div>
+</div>
 </div>

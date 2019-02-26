@@ -1,6 +1,8 @@
+<div class="card">
+        <div class="card-body">
 <div class="row">
     <div class="col-lg-12">
-        <h1>Saving Type <small>Overview</small></h1>
+    <h1 style="font-family: 'PT Serif', serif; font-size: 20pt; align-text: center;" >Saving Types</h1>
         <ol class="breadcrumb">
             <li class="active"><i class="fa fa-list"></i> Import saving types</li>
         </ol>            
@@ -31,6 +33,7 @@ $data = array(
     'value' => '',
     'data-icon' => 'false'
 );
+
 $output .= form_upload($data);
 $output .= '</div> <span style="color:red;">*Please choose an Excel file(.csv) as Input</span></div>';
 $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group text-right">';
@@ -40,10 +43,17 @@ $data = array(
     'class' => 'btn btn-primary btn-sm',
     'value' => 'Import',
 );
+
 $output .= form_submit($data, 'Import Data');
 $output .= '</div>
                         </div></div>';
 $output .= form_close();
 echo $output;
 ?>
+
+<br></br>
+
 <?php echo anchor("saving_type/saving_type", "Back", array("class"=>"btn btn-primary btn-sm")); ?><br></br>
+
+</div>
+</div>
