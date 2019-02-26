@@ -19,30 +19,24 @@
             }
         ?>
 <h1 style="font-family: 'PT Serif', serif; font-size: 20pt;" >Loan Types </h1>
-<!-- <div class = "form-group">
-            <input class="form-control form-control-dark w-10 col-md-3" type="text" name = "search" placeholder="Search by name" aria-label="Search">
-        </div>
-        <div class = "form-group">
-            <input type = "submit" value="Search" class="btn btn-primary">
-        </div> -->
 		
-	<!-- <?php
+	<?php
 		   
-		   //echo form_open('loan_types/execute_search');
+		   echo form_open('loan_types/execute_search');
 
 			?>
 			<div class = 'form-group'>
 			<?php
-            //echo form_input(array('name' => 'search', 'placeholder' => 'search', 'aria-label'=>'Search','class'=>'form-control form-control-dark w-10 col-md-3'));
+            echo form_input(array('name' => 'search', 'placeholder' => 'search', 'aria-label'=>'Search','class'=>'form-control form-control-dark w-10 col-md-3'));
 			?>
 			</div>
 						
 			<div class = 'form-group'>
 			<?php
-			//echo form_submit('search_submit', 'Search', array('class'=>'btn-secondary btn-sm'));
+			echo form_submit('search_submit', 'Search', array('class'=>'btn-secondary btn-sm'));
 
             ?> 
-			</div> -->
+			</div>
 			
 			<?php echo anchor("loan_types/new_loan_type", "Add loan type", array("class"=>"btn btn-primary btn-sm")); ?>
 			
