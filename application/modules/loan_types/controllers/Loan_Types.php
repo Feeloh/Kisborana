@@ -248,4 +248,7 @@ class Loan_Types extends MX_Controller
             }
         }
     }
+    public function download_csv(){
+        force_download("./assets/downloads/loan_type.csv", NULL);
+    }
 }
