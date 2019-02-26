@@ -15,12 +15,29 @@ class Saving_type extends MX_Controller
    //all saving types
     public function index()
     {
+        //search
+        $this->form_validation->set_rules("search", "Search", "required");
+        if ($this->form_validation->run()) {
+            $saving_type_id["searched_saving_type"] = $this->saving_type_model->search_saving_type();
+            //var_dump($friend_id); die();
+           
+           $data = array("title" => $this->site_model->display_page_title(),
+            "content" => $this->load->view("saving_type/search_results",$saving_type_id, true),
+
+           );
+        $this->load->view("site/layouts/layout", $data);
+       }
+
+    
+       else {
+
         $v_data["all_saving_type"] = $this->saving_type_model->get_saving_type();
 
         $data = array("title" => $this->site_model->display_page_title(),
             "content" => $this->load->view("saving_type/all_saving_type", $v_data, true),
         );
         $this->load->view("site/layouts/layout", $data);
+        }
     }
 
     //ading new saving type    

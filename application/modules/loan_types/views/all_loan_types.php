@@ -38,9 +38,10 @@
             ?> 
 			</div>
 			
+			<div style = "padding-bottom: 8px;">
 			<?php echo anchor("loan_types/new_loan_type", "Add loan type", array("class"=>"btn btn-primary btn-sm")); ?>
 			
-			<div class="text-right">
+			
 			<?php echo anchor("loan_types/bulk_registration/", "Bulk Registration", array("class"=>"btn btn-success btn-sm")); ?>
 			</div>
 <div class="table-responsive">

@@ -26,6 +26,7 @@ class Loan_Types extends MX_Controller
         $limit_per_page = 2;
 
         // get current page records
+       
         $config['base_url'] = base_url() . 'loan_types/index';
         $config['total_rows'] = $total_records;
         $config['per_page'] = 2;
