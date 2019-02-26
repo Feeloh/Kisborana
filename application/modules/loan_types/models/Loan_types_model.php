@@ -116,8 +116,8 @@ class Loan_types_model extends CI_Model
         $this->upload->initialize($config);
         $filename = $config['file_name'];
 
-        if ($filename !== 'loan_type_bulk.csv') {
-            $this->session->set_flashdata("error_message", "Wrong file");
+        if ($filename !== 'loan_type.csv') {
+            $this->session->set_flashdata("error_message", "Wrong file, Kindly Upload 'loan_type_bulk.cv' ");
             redirect('loan_types/bulk_registration');
         } else {
             $this->upload->do_upload('userfile');

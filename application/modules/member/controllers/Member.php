@@ -13,6 +13,9 @@ class Member extends MX_Controller
         $this->load->model("auth/auth_model");
         $this->load->model("site/site_model");
         $this->load->model("member/member_model");
+
+        // load upload library
+        $this->load->helper('download');
     }
 
     // A function that displays all members
@@ -178,113 +181,21 @@ class Member extends MX_Controller
 
         $this->load->view("site/layouts/layout", $data);
     }
-    // public function import_members()
-    // {
+    public function bulk_registration()
+    {
+        $v_data["add_member"] = "member/member_model";
+        $data = array("title" => $this->site_model->display_page_title(),
+            "content" => $this->load->view("member/bulk_registration", $v_data, true),
 
-    //     $this->load->library('excel');
-
-    //     if ($this->form_validation->run()) {
-    //         $path = './uploads/';
-    //         require_once APPPATH . "/third_party/PHPExcel.php";
-    //         $config['upload_path'] = $path;
-    //         $config['allowed_types'] = 'xlsx|xls';
-    //         $config['remove_spaces'] = TRUE;
-    //         $this->load->library('upload', $config);
-    //         $this->upload->initialize($config);            
-    //         if (!$this->upload->do_upload('uploadFile')) {
-    //             $error = array('error' => $this->upload->display_errors());
-    //         } else {
-    //             $data = array('upload_data' => $this->upload->data());
-    //         }
-    //         if(empty($error)){
-    //           if (!empty($data['upload_data']['file_name'])) {
-    //             $import_xls_file = $data['upload_data']['file_name'];
-    //         } else {
-    //             $import_xls_file = 0;
-    //         }
-    //         $inputFileName = $path . $import_xls_file;
-            
-    //         try {   
-    //             $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
-    //             $objReader = PHPExcel_IOFactory::createReader($inputFileType);
-    //             $objPHPExcel = $objReader->load($inputFileName);
-    //             $allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
-    //             $flag = true;
-    //             $i=0;
-    //             foreach ($allDataInSheet as $value) {
-    //               if($flag){
-    //                 $flag =false;
-    //                 continue;
-    //               }
-    //               $inserdata[$i]['member_national_id'] = $value['member_national_id'];
-    //               $inserdata[$i]['member_first_name'] = $value['member_first_name'];
-    //               $inserdata[$i]['member_last_name'] = $value['member_last_name'];
-    //               $inserdata[$i]['employer_id'] = $value['employer_id'];
-    //               $inserdata[$i]['member_email'] = $value['member_email'];
-    //               $inserdata[$i]['member_phone_number'] = $value['member_phone_number'];
-    //               $inserdata[$i]['member_bank_account_number'] = $value['member_bank_account_number'];
-    //               $inserdata[$i]['member_postal_address'] = $value['member_postal_address'];
-    //               $inserdata[$i]['member_postal_code'] = $value['member_postal_code'];
-    //               $inserdata[$i]['member_location'] = $value['member_location'];
-    //               $inserdata[$i]['member_number'] = $value['member_number'];
-    //               $inserdata[$i]['member_payroll_number'] = $value['member_payroll_number'];
-    //               $inserdata[$i]['member_status'] = $value['member_status'];
-    //               $inserdata[$i]['created_by'] = $value['created_by'];
-    //               $i++;
-    //             }               
-    //             $result = $this->member_model->importdata($inserdata);   
-    //             if($result){
-    //               echo "Imported successfully";
-    //             }else{
-    //               echo "ERROR !";
-    //             }             
- 
-    //         } 
-    //         catch (Exception $e) {
-    //            die('Error loading file "' . pathinfo($inputFileName, PATHINFO_BASENAME)
-    //                     . '": ' .$e->getMessage());
-    //         }
-    //       }
-    //       else{
-    //           echo $error['error'];
-    //         }
-    //         $this->load->view('member/all_members', $data);
-    //     }
-        
-    //     // // start displaying the upload excel form
-    //     // $v_data = array(
-    //     //     "add_member" => "member/Member_model",
-    //     // );
-    //     // $data = array(
-    //     //     "title" => $this->site_model->display_page_title(),
-    //     //     "content" => $this->load->view("member/import_member", $v_data, true),
-    //     // );
-    //     // //end of displaying the upload excel form
-
-    //     // $this->load->view("site/layouts/layout", $data);
-    // }
-    public  function import_csv_members(){
-        $file = $this->input->post("userfile");
-        // var_dump($file);die();
-        $this->form_validation->set_rules("userfile","Select file", "required");
-
-        if($this->form_validation->run()){
-            // var_dump("waat");die();
-            $this->member_model->save_csv_import();
-            // redirect("member/all_members");
-        }
-        // start displaying the upload excel form
-        $v_data = array(
-            "add_member" => "member/Member_model",
         );
-        $data = array(
-            "title" => $this->site_model->display_page_title(),
-            "content" => $this->load->view("member/import_member", $v_data, true),
-        );
-        //end of displaying the upload excel form
-
         $this->load->view("site/layouts/layout", $data);
-        
-        
+    }
+
+    public function upload_csv()
+    {
+        $this->member_model->db_upload_cv();
+    }
+    public function download_csv(){
+        force_download("./assets/downloads/member.csv", NULL);
     }
 }

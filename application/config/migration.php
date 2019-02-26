@@ -74,6 +74,7 @@ $config['migration_version'] = 20190218142935;
 $config['migration_version'] = 20190218142936;
 $config['migration_version'] = 20190219102901;
 $config['migration_version'] = 20190219123102;
+$config['migration_version'] = 20190226165711;
 
 /*
 |--------------------------------------------------------------------------

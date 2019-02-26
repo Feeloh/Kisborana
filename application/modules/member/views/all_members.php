@@ -1,14 +1,10 @@
 <h1 style="font-family: 'PT Serif', serif; font-size: 20pt;">Sacco Members</h1>
-<!-- <?php //echo form_open($this->uri->uri_string()) ?>
-        <div class = "form-group">
-            <input class="form-control form-control-dark w-10 col-md-3" type="text" name = "search" placeholder="Search by name" aria-label="Search">
-        </div>
-        <div class = "form-group">
-            <input type = "submit" value="Search" class="btn btn-secondary btn-sm">
-        </div>
-        <?php //echo form_close() ?> -->
+
 
         <?php echo anchor("member/new_member", "Add Member", array("class"=>"btn btn-primary btn-sm")); ?> <br></br>
+        <div class="text-right">
+        <?php echo anchor("member/bulk_registration/", "Bulk Registration", array("class" => "btn btn-success btn-sm")); ?>
+        </div>
         <table class="table table-condensed table-striped table-sm table-bordered" >
             <tr>
                 <th scope="col">#</th>
