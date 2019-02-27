@@ -105,6 +105,8 @@ class Member extends MX_Controller
         }
         redirect('member');
     }
+
+    //A function that edits member deatails
     public function display_edit_form($member_id)
     {
 
@@ -153,7 +155,7 @@ class Member extends MX_Controller
             $bank_id = $row->bank_id;
             $bank_name = $row->bank_name;
             $phone_number = $row->member_phone_number;
-            $bank_account_number = $row->member_bank_account_number;
+            $account_number = $row->member_account_number;
         }
         $v_data = array(
             "member_id " => $member_id,
@@ -166,10 +168,12 @@ class Member extends MX_Controller
             "postal_code" => $postal_code,
             "member_number" => $member_number,
             "member_payroll_number" => $member_payroll_number,
+            "employer_id" => $employer_id,
             "employer_name" => $employer_name,
             "phone_number" => $phone_number,
-            "bank_account_number" => $bank_account_number,
-            "bank_id" => $bank_name,
+            "bank_account_number" => $account_number,
+            "bank_id" => $bank_id,
+            "bank_name" => $bank_name,
 
         );
         // var_dump($v_data);die();
