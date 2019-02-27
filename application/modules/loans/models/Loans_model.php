@@ -1,6 +1,28 @@
 <?php
 class loans_model extends CI_Model
 {
+    //getting member name
+    public function get_member_details(){
+        $query = $this->db->get('member');
+        return $query;
+
+    }
+
+    //getting loan_type_details
+    public function get_loan_type_details(){
+       $query = $this->db->get('loan_type');
+        return $query;
+       //var_dump($query->result());die();
+
+    }
+
+    //getting single loan_type_details
+    public function get_single_loan_type_details($loan_type_id){
+        $this->db->where("loan_type_id", $loan_type_id);
+        $query = $this->db->get('loan_type');
+        return ($query);
+ 
+     }
     public function add_loan()
     {           
         $data = array(

@@ -48,7 +48,7 @@ class Member extends MX_Controller
         $this->form_validation->set_rules("member_payroll_number", "Member Payroll number", "required");
         $this->form_validation->set_rules("location", "Location", "required");
 
-        $bank_details = $this->member_model->get_bank_details();
+        $tails = $this->member_model->get_bank_details();
         $employer_details = $this->member_model->get_employer_details();
         if ($this->form_validation->run()) {
             $saved_members = $this->member_model->save_members();

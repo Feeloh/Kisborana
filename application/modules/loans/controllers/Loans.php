@@ -107,6 +107,10 @@ class Loans extends MX_Controller
         $this->form_validation->set_rules("custom_number_of_guarantors", "Custom number of guarantors", "numeric");
         $this->form_validation->set_rules("interest_rate", "Interest rate", "numeric|required");
       
+        $member_details = $this->loans_model->get_member_details();
+        $loan_type_details = $this->loans_model->get_loan_type_details();
+        
+
         if ($this->form_validation->run()) {
             $loan_id = $this->loans_model->add_loan();
             if ($loan_id > 0) {
@@ -119,7 +123,12 @@ class Loans extends MX_Controller
         $data["form_error"] = validation_errors();
         // $this->load->view("add_loan", $data);
 
-        $v_data["add_loan"] = "loans/loans_model";
+        $v_data = array ("add_loan" => "loans/loans_model",
+                            "member_details" => $member_details,
+                            "loan_type_details" => $loan_type_details);
+                            
+       
+
         $data = array("title" => $this->site_model->display_page_title(),
             "content" => $this->load->view("loans/add_loan", $v_data, true),
 
@@ -234,4 +243,32 @@ class Loans extends MX_Controller
             }
         }
     }
+
+     //getting single loan_type_details
+     public function select_loan_type($loan_type_id)
+     {
+
+         $loan_from_view = "1";
+         var_dump($loan_from_view);die();
+        $selected_loan_type = $this->loans_model->get_single_loan_type_details($loan_type_id);
+
+        if ($selected_loan_type->num_rows()>0)
+        {
+            $row = $selected_loan_type->row();
+            $loan_type_name = $row->loan_type_name;
+            $maximum_loan_amount = $row->maximum_loan_amount;
+            $minimum_loan_amount = $row->minimum_loan_amount;
+            $custom_loan_amount = $row->custom_loan_amount;
+            $maximum_number_of_installments = $row->maximum_number_of_installments;
+            $minimum_number_of_installments = $row->minimum_number_of_installments;
+            $custom_number_of_installments = $row->custom_number_of_installments;
+            $maximum_number_of_guarantors = $row->maximum_number_of_guarantors;
+            $minimum_number_of_guarantors = $row->minimum_number_of_guarantors;
+            $custom_number_of_guarantors = $row->custom_number_of_guarantors;
+            $interest_rate = $row->interest_rate;
+
+
+        }
+     }
+     
 }

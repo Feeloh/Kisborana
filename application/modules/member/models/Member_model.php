@@ -11,7 +11,7 @@ class Member_model extends CI_Model
         $query = $this->db->get('employer');
         return $query;
     }
-    public function save_members(){
+    public function save_members(){ 
         $data = array(
             "bank_id" => $this->input->post("bank_name"),
             "member_national_id" => $this->input->post("member_national_id"),
