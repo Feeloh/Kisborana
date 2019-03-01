@@ -106,7 +106,7 @@ class Migration_Create_loan extends CI_Migration {
                             'unsigned' => TRUE,
                         ),
                         'loan_number' => array(
-                            'type' => 'INT',
+                            'type' => 'VARCHAR',
                             'constraint' => 100,
                             'unsigned' => TRUE,
                         ),
