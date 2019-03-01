@@ -4,7 +4,7 @@
     <div class="col-lg-12">
     <h1 style="font-family: 'PT Serif', serif; font-size: 20pt; align-text: center;" >Saving Types</h1>
         <ol class="breadcrumb">
-            <li class="active"><i class="fa fa-list"></i> Import saving types</li>
+            <li class="active"><i class="fa fa-list"></i> imports saving types</li>
         </ol>            
     </div>
 </div><!-- /.row -->
@@ -19,12 +19,12 @@
 
 <?php
 $output = '';
-$output .= form_open_multipart('saving_type/import/save');
+$output .= form_open_multipart('saving_types/imports/save');
 $output .= '<div class="row">';
 $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group">';
-$output .= form_label('Import Saving Types', 'image');
+$output .= form_label('import Saving Types', 'image');
 
- echo anchor("saving_type/import/download", "Download Template", array("class"=>"btn btn-primary btn-sm")); ?><br></br>
+ echo anchor("saving_types/imports/download", "Download Template", array("class"=>"btn btn-primary btn-sm")); ?><br></br>
 <?php
 $data = array(
     'name' => 'userfile',
@@ -53,7 +53,7 @@ echo $output;
 
 <br></br>
 
-<?php echo anchor("saving_type/saving_type", "Back", array("class"=>"btn btn-primary btn-sm")); ?><br></br>
+<?php echo anchor("saving_types/saving_types", "Back", array("class"=>"btn btn-primary btn-sm")); ?><br></br>
 
 </div>
 </div>

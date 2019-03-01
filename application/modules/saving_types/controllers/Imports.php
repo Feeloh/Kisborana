@@ -15,7 +15,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Import extends CI_Controller {
+class Imports extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -30,7 +30,7 @@ class Import extends CI_Controller {
        // $data['title'] = 'Import XLSX | TechArise';
         
        $data = array("title" => $this->site_model->display_page_title(),
-            "content" => $this->load->view('saving_type/upload', $data, true),
+            "content" => $this->load->view('saving_types/upload', $data, true),
         );
         $this->load->view("site/layouts/layout", $data);
 
@@ -140,7 +140,7 @@ class Import extends CI_Controller {
         //$this->load->view('saving_type/display', $data);
        // $v_data ["add_saving_type"]= "saving_type/saving_type_model";
         $data = array("title" => $this->site_model->display_page_title(),
-            "content" => $this->load->view('saving_type/display', $data, true),
+            "content" => $this->load->view('saving_types/display', $data, true),
         );
         $this->load->view("site/layouts/layout", $data);
         
@@ -156,7 +156,7 @@ class Import extends CI_Controller {
         force_download($name, $data); 
 
         
-            redirect('saving_type/import/','refresh');
+            redirect('saving_types/import/','refresh');
     }
 }
 ?>

@@ -32284,3 +32284,30 @@ function CopyToClipboard(value, showNotification, notificationText) {
 		});
 	}
 }
+
+
+
+function changeFunc() {
+
+ 
+ var selectBox = document.getElementById("selectBox");
+ var selected = document.getElementById("display");
+
+ var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+ if(selected.style.display == "none") { selected.style.display = "block"; }
+    else { selected.style.display = "none"; }
+
+var block_to_insert ;
+var container_block ;
+ 
+block_to_insert = document.createElement( 'div');
+block_to_insert.innerHTML = selectedValue ;
+ 
+container_block = document.getElementById( 'loan_type_details' );
+container_block.appendChild( block_to_insert );
+
+
+
+ 
+}

@@ -16,8 +16,9 @@ class Migration_Create_loan_stage extends CI_Migration {
                         'loan_stage_name' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
-                        ),
-                        
+                                'DEFAULT' => 'In Progress',
+                                'unsigned' => TRUE,
+                        ),                      
                         
                 ));
                 $this->dbforge->add_field("`loan_stage_status` tinyint NOT NULL DEFAULT 1");

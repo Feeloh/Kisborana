@@ -58,9 +58,8 @@
 
             
             <div>   
-            <?php echo anchor("saving_type/new_saving_type", "Add Saving Type", array("class"=>"btn btn-primary btn-sm")); ?>
-            
-            <?php echo anchor("saving_type/import", "Import Saving Types", array("class"=>"btn btn-success btn-sm")); ?>  
+            <?php echo anchor("saving_types/new_saving_type", "Add Saving Type", array("class"=>"btn btn-primary btn-sm")); ?>
+            <?php echo anchor("saving_types/import", "Import Saving Types", array("class"=>"btn btn-success btn-sm")); ?>  
             </div>
 
             
@@ -83,10 +82,10 @@
             </tr>
 
             <?php
-            if ($all_saving_type->num_rows() > 0) {
+            if ($searched_saving_type->num_rows() > 0) {
                 $count = 0;
 
-                foreach ($all_saving_type->result() as $row) {
+                foreach ($searched_saving_type->result() as $row) {
                     $count++;
                     $id = $row->saving_type_id;
                     $name = $row->saving_type_name;
@@ -97,7 +96,7 @@
 
 
                  <tr>
-                
+                <!-- <td><input type="checkbox" class="sub_chk" data-id="<?php //echo $delete ?>"></td> -->
                  <td>
                         <?php echo $count; ?>
                  </td>
@@ -118,7 +117,7 @@
 
                  <td>                  
 
-                    <a href="#individualSaving_type<?php echo $id; ?>" class="btn btn-success btn-sm" data-toggle="modal" data-target="#individualSaving_type<?php echo $id; ?>"><i class="far fa-eye"></i></a>
+                    <a href="#individualSaving_type<?php echo $id; ?>" class="btn btn-info btn-sm" data-toggle="modal" data-target="#individualSaving_type<?php echo $id; ?>"><i class="far fa-eye"></i></a>
                     <!-- Modal -->
                     <div class="modal fade" id="individualSaving_type<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
@@ -156,7 +155,7 @@
                                 if ($check == 0) {
                                  echo "<button class='badge badge-danger far fa-thumbs-down'> Inactive</button>";
                                 } else {
-                                 echo "<button class='badge badge-success far fa-thumbs-up'> Active</button>";
+                                 echo "<button class='badge badge-success far fa-thumbs-down'> Active</button>";
                                 }
                                 ?>
 
@@ -164,21 +163,21 @@
 
                             <td>
 
-                                <?php echo anchor("saving_type/saving_type/update_saving_type/" . $id, '<i class="fas fa-edit"></i>', "class ='btn btn-info'"); ?>
+                                <?php echo anchor("saving_types/saving_types/update_saving_type/" . $id, '<i class="fas fa-edit"></i>', "class ='btn btn-info'"); ?>
 
                             </td>
 
                             <td>
-                                <?php echo anchor("saving_type/saving_type/delete_saving_type" . $id, "<i class='fas fa-trash-alt'></i>", array("onclick" => "return confirm('Are you sure you want to delete?')", "class" => "btn btn-danger")); ?>
+                                <?php echo anchor("saving_types/saving_types/delete_saving_type" . $id, "<i class='fas fa-trash-alt'></i>", array("onclick" => "return confirm('Are you sure you want to delete?')", "class" => "btn btn-danger")); ?>
 
                             </td>
 
                             <td>
                                 <?php
                                 if ($check == 0) {
-                                    echo anchor("saving_type/saving_type/activate_saving_type/" . $id, "<i class='far fa-thumbs-up'></i>", array("onclick" => "return confirm('Are you sure you want to activate?')", "class" => "btn btn-success btn-sm"));
+                                    echo anchor("saving_types/saving_types/activate_saving_type/" . $id, "<i class='far fa-thumbs-up'></i>", array("onclick" => "return confirm('Are you sure you want to activate?')", "class" => "btn btn-success btn-sm"));
                                 } else {
-                                    echo anchor("saving_type/saving_type/deactivate_saving_type/" . $id, "<i class='far fa-thumbs-down'></i>", array("onclick" => "return confirm('Are you sure you want to deactivate?')", "class" => "btn btn-danger btn-sm"));
+                                    echo anchor("saving_types/saving_types/deactivate_saving_type/" . $id, "<i class='far fa-thumbs-down'></i>", array("onclick" => "return confirm('Are you sure you want to deactivate?')", "class" => "btn btn-danger btn-sm"));
                                 }
                                 ?>
                             </td>
@@ -197,19 +196,19 @@
                  <!-- end of modal body -->
 
                  
-                    <?php echo anchor("saving_type/saving_type/update_saving_type/" . $id, '<i class="fas fa-edit"></i>', "class ='btn btn-info btn-sm'"); ?>
+                    <?php echo anchor("saving_types/saving_types/update_saving_type/" . $id, '<i class="fas fa-edit"></i>', "class ='btn btn-info btn-sm'"); ?>
                 
 
                  
-                    <?php echo anchor("saving_type/saving_type/delete_saving_type/" . $id, "<i class='fas fa-trash-alt'></i>", array("onclick" => "return confirm('Are you sure you want to delete?')", "class" => "btn btn-danger btn-sm")); ?>
+                    <?php echo anchor("saving_types/saving_types/delete_saving_type/" . $id, "<i class='fas fa-trash-alt'></i>", array("onclick" => "return confirm('Are you sure you want to delete?')", "class" => "btn btn-danger btn-sm")); ?>
                
                  
                  
                     <?php
                     if ($check == 0) {
-                        echo anchor("saving_type/saving_type/activate_saving_type/" . $id, "<i class='far fa-thumbs-up'></i>", array("onclick" => "return confirm('Are you sure you want to activate?')", "class" => "btn btn-success btn-sm"));
+                        echo anchor("saving_types/saving_types/activate_saving_type/" . $id, "<i class='far fa-thumbs-up'></i>", array("onclick" => "return confirm('Are you sure you want to activate?')", "class" => "btn btn-success btn-sm"));
                     } else {
-                        echo anchor("saving_type/saving_type/deactivate_saving_type/" . $id, "<i class='far fa-thumbs-down'></i>", array("onclick" => "return confirm('Are you sure you want to deactivate?')", "class" => "btn btn-danger btn-sm"));
+                        echo anchor("saving_types/saving_types/deactivate_saving_type/" . $id, "<i class='far fa-thumbs-down'></i>", array("onclick" => "return confirm('Are you sure you want to deactivate?')", "class" => "btn btn-danger btn-sm"));
                     }
                     ?>
                  </td>
@@ -235,7 +234,7 @@
             </ul>
         </nav>
         <!-- end of pagination -->
-
+        <?php echo anchor("saving_types/saving_types", "Back", array("class"=>"btn btn-primary btn-sm")); ?><br></br>
 
     </div>
     </div>

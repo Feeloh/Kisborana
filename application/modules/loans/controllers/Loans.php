@@ -112,7 +112,8 @@ class Loans extends MX_Controller
         
       
         $member_details = $this->loans_model->get_member_details();
-        $loan_type_details = $this->loans_model->get_loan_type_details();
+        $loan_type_details = $this->loans_model->get_loan_type_details_active();
+        
        $loan_stage_details =$this->loans_model->get_loan_stage_details();
 
         if ($this->form_validation->run()) {

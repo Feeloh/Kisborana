@@ -1,5 +1,5 @@
 <?php
-class Saving_type_model extends CI_Model
+class Saving_types_model extends CI_Model
 {
     
     //function for adding new saving type

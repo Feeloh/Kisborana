@@ -158,5 +158,15 @@ class loans_model extends CI_Model
         return $query->result_array();
     }
 
+    // retrieve undeleted and active loan types
+    public function get_loan_type_details_active(){
+        $where = array(
+            'deleted' => 0,
+            'loan_type_status' => 1
+        );
+        $this->db->where($where);
+        $query = $this->db->get("loan_type");
+         return  $query;
+    }
     
 }
