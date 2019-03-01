@@ -45,6 +45,9 @@
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script> -->
 <script src="<?php echo base_url() ?>assets/themes/custom/feather.min.js"></script>
-<script src="<?php echo base_url() ?>assets/themes/custom/script.js"></script>
+<script src="<?php echo base_url() ?>assets/themes/custom/select2_script.js"></script>
+
+<link href="<?php echo base_url();?>assets/themes/custom/select2.min.css" rel="stylesheet">
+<script src="<?php echo base_url();?>assets/themes/custom/select2.min.js"></script>
 </body>      
 </html>

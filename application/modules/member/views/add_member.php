@@ -67,10 +67,10 @@
 			<label for="postal_code"><b>Postal code</b></label>
 			<input type="number" name="postal_code" class="form-control form-control-lg inputform" />
 		</div>
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<label for="member_number"><b>Member number</b></label>
 			<input type="number" name="member_number" class="form-control form-control-lg inputform" />
-		</div>
+		</div> -->
 		<div class="form-group">
 			<label for="member_payroll_number"><b>Member Payroll number</b></label>
 			<input type="number" name="member_payroll_number" class="form-control form-control-lg inputform" />

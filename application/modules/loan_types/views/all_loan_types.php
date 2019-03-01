@@ -145,7 +145,7 @@ if ($all_loan_types->num_rows() > 0) {
             </td>
 
             <td>
-                <a href="#individualSaving_type<?php echo $id; ?>" class="btn btn-info btn-sm" data-toggle="modal"
+                <a href="#individualSaving_type<?php echo $id; ?>" class="btn btn-success btn-sm" data-toggle="modal"
                     data-target="#individualSaving_type<?php echo $id; ?>"><i class="far fa-eye"></i></a>
                 <!-- Modal -->
                 <div class="modal fade" id="individualSaving_type<?php echo $id; ?>" tabindex="-1" role="dialog"

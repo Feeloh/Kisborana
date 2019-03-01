@@ -20,8 +20,3 @@
 
 <link href="<?php echo base_url();?>assets/fontawesome/css/all.css" rel="stylesheet">
 <link rel ="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/themes/custom/style.css">
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
-	<link rel="stylesheet" href="css/select2-bootstrap.css">
-	<link rel="stylesheet" href="css/gh-pages.css">

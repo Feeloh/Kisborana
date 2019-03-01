@@ -21,7 +21,9 @@ class Member extends MX_Controller
     // A function that displays all members
     public function index()
     {
-        $v_data["all_members"] = $this->member_model->get_members();
+        $employer_details = $this->member_model->get_employer_details();
+        $v_data = array ("all_members"=>$this->member_model->get_members(),
+                            "employer_details"=>$employer_details);
 
         $data = array("title" => $this->site_model->display_page_title(),
             "content" => $this->load->view("member/all_members", $v_data, true),
@@ -44,11 +46,11 @@ class Member extends MX_Controller
         $this->form_validation->set_rules("account_number", "Account number", "required");
         $this->form_validation->set_rules("postal_address", "Postal address", "required");
         $this->form_validation->set_rules("postal_code", "Postal code", "required");
-        $this->form_validation->set_rules("member_number", "Member number", "required");
+        // $this->form_validation->set_rules("member_number", "Member number", "required");
         $this->form_validation->set_rules("member_payroll_number", "Member Payroll number", "required");
         $this->form_validation->set_rules("location", "Location", "required");
 
-        $tails = $this->member_model->get_bank_details();
+        $bank_details = $this->member_model->get_bank_details();
         $employer_details = $this->member_model->get_employer_details();
         if ($this->form_validation->run()) {
             $saved_members = $this->member_model->save_members();

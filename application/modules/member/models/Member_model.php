@@ -24,14 +24,29 @@ class Member_model extends CI_Model
             "member_postal_address" => $this->input->post("postal_address"),
             "member_postal_code" => $this->input->post("postal_code"),
             "member_location" => $this->input->post("location"),
-            "member_number" => $this->input->post("member_number"),
+            "member_number" => "MN",
             "member_payroll_number" => $this->input->post("member_payroll_number"),
             "created_by" => 1,
             "created_on" => date('Y-m-d H:i:s'),
         );
         //var_dump($data);die();
-        $query = $this->db->insert("member", $data);
-        return $query;
+        if ($this->db->insert("member", $data)){
+        $member_id =$this->db->insert_id();
+
+        $member_number = "MN00". $member_id;
+
+        $member_number_data = array(
+            "member_number" => $member_number
+         );
+
+        $this->db->set($member_number_data);
+        $this->db->where("member_id",$member_id);
+        $this->db->update("member");
+
+        return $member_id;
+    } else {
+        return false;
+    }
     }
     public function get_members(){
         // $this->db->select('employer_name');

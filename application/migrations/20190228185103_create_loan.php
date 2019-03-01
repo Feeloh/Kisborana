@@ -22,10 +22,24 @@ class Migration_Create_loan extends CI_Migration {
                                 'field' => 'member_id' // field to
                             ),
                         ),
-                        'loan_stage' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '100',
+                        'loan_type_id' => array(
+                            'type' => 'INT',
+                            'constraint' => 11,
+                            'unsigned' => TRUE,
+                            'foreign_key' => array( //relationship
+                                'table' => 'loan_type', // table to
+                                'field' => 'loan_type_id' // field to
+                            ),
                         ),
+                        'loan_stage_id' => array(
+                                'type' => 'int',
+                                'constraint' => '11',
+                                'unsigned' => TRUE,
+                                'foreign_key' => array( //relationship
+                                    'table' => 'loan_stage', // table to
+                                    'field' => 'loan_stage_id'
+                        ),
+                    ),
                         'loan_amount' => array(
                             'type' => 'INT',
                             'constraint' => 200,
@@ -101,6 +115,7 @@ class Migration_Create_loan extends CI_Migration {
                             'constraint' => 100,
                             'unsigned' => TRUE,
                         ),
+                        
                         ));
                     $this->dbforge->add_field("`loan_status` tinyint NOT NULL DEFAULT 1");
                     $this->dbforge->add_field("`created_by` int NOT NULL ");

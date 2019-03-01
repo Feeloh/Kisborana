@@ -33,11 +33,17 @@ class Loans extends MX_Controller
         $config['num_links'] = 1;
 
         $this->pagination->initialize($config);
+        $member_details = $this->loans_model->get_member_details();
+        $loan_type_details = $this->loans_model->get_loan_type_details();
+        $loan_stage_details =$this->loans_model->get_loan_stage_details();
 
         // build paging links
         $params = array('links' => $this->pagination->create_links(),
             'all_loans' => $this->loans_model->get_loan($limit_per_page, $start_index),
-            'page' => $start_index);
+            'page' => $start_index,
+            'member_details'=>$member_details,
+            'loan_type_details'=>$loan_type_details,
+            'loan_stage_details'=>$loan_stage_details);
 
             $var2 = $this->loans_model->get_loan($limit_per_page, $start_index);
            
@@ -92,24 +98,22 @@ class Loans extends MX_Controller
 
     }
 
+   //add loan
     public function new_loan()
     {
         //form validation
-        $this->form_validation->set_rules("loan_name", "Loan Type Name", "required");
-        $this->form_validation->set_rules("maximum_loan_amount", "Maximum loan amount", "numeric");
-        $this->form_validation->set_rules("minimum_loan_amount", "Minimum loan amount", "numeric");
-        $this->form_validation->set_rules("custom_loan_amount", "Custom loan amount", "numeric");
-        $this->form_validation->set_rules("maximum_number_of_installments", "Maximum number of installments", "numeric");
-        $this->form_validation->set_rules("minimum_number_of_installments", "Minimum number of installments", "numeric");
-        $this->form_validation->set_rules("custom_number_of_installments", "Custom number of installments", "numeric");
-        $this->form_validation->set_rules("maximum_number_of_guarantors", "Maximum number of guarantors", "numeric");
-        $this->form_validation->set_rules("minimum_number_of_guarantors", "Minimum number of guarantors", "required|numeric");
-        $this->form_validation->set_rules("custom_number_of_guarantors", "Custom number of guarantors", "numeric");
-        $this->form_validation->set_rules("interest_rate", "Interest rate", "numeric|required");
+        $this->form_validation->set_rules("member_name", "Member", "required");
+        $this->form_validation->set_rules("loan_type_name", "Loan Type", "required");
+        $this->form_validation->set_rules("loan_stage", "Loan Stage", "required");
+        $this->form_validation->set_rules("loan_amount", "Loan Amount", "numeric");
+        $this->form_validation->set_rules("installment_period", "Installment Period", "numeric");
+        // $this->form_validation->set_rules("loan_number", "Loan Number", "required");
+        $this->form_validation->set_rules("member_salary", "Member Salary", "numeric");
+        
       
         $member_details = $this->loans_model->get_member_details();
         $loan_type_details = $this->loans_model->get_loan_type_details();
-        
+       $loan_stage_details =$this->loans_model->get_loan_stage_details();
 
         if ($this->form_validation->run()) {
             $loan_id = $this->loans_model->add_loan();
@@ -125,7 +129,8 @@ class Loans extends MX_Controller
 
         $v_data = array ("add_loan" => "loans/loans_model",
                             "member_details" => $member_details,
-                            "loan_type_details" => $loan_type_details);
+                            "loan_type_details" => $loan_type_details,
+                            "loan_stage_details"=>$loan_stage_details);
                             
        
 

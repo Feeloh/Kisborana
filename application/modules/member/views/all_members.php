@@ -98,7 +98,7 @@ echo form_open('loan_types/execute_search');
                     $location = $row->member_location;
                     $member_number = $row->member_number;
                     $member_payroll_number = $row->member_payroll_number;
-                    $employer_name = $row->employer_id;
+                    $employer = $row->employer_id;
                     $phone_number = $row->member_phone_number;
                     $status = $row->member_status;
                     $created_on = $row->created_on;
@@ -131,7 +131,14 @@ echo form_open('loan_types/execute_search');
                     <?php echo $member_payroll_number; ?>
                 </td>
                 <td>
-                    <?php echo $employer_name; ?>
+                    <?php foreach($employer_details->result() as $row){
+                        $employer_name = $row->employer_name;
+                        $employer_id = $row->employer_id;
+
+                        if ($employer == $employer_id){
+                            echo $employer_name;
+                        } 
+                    } ?>
                 </td>
                 <td>
                     <?php echo $phone_number; ?>
@@ -150,7 +157,7 @@ echo form_open('loan_types/execute_search');
 
                 <td>
 
-                    <a href="#individualMember<?php echo $id;?>" class="btn btn-info btn-sm" data-toggle="modal"
+                    <a href="#individualMember<?php echo $id;?>" class="btn btn-success btn-sm" data-toggle="modal"
                         data-target="#individualMember<?php echo $id;?>"><i class="far fa-eye"></i></a>
 
                     <!-- Modal -->
