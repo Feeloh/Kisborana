@@ -5,36 +5,57 @@ class Auth_model extends CI_Model
 {
     public function validate_user()
     {
+        $email = $this->input->post("user_email");
+        $pass  = md5($this->input->post("user_password"));
         $where = array (
-            "user_email" => $this->input->post("user_email"),
-            "user_password" => md5($this->input->post("user_password"))
+            "user_email" => $email,
+            "user_password" => $pass,
+            "login_status" => TRUE
         );
 
-        //run the query
-        $this->db->where($where);
-        $query = $this->db->get("user_table");
+        $this->session->set_userdata('logged_in_user',$where);
 
-        if($query->num_rows()==1)
+        if($email == 'admin' && $pass == md5(123456))
         {
-            $row = $query->row();
-            $user = array(
-                "user_first_name" =>$row->user_first_name,
-                "user_last_name" =>$row->user_last_name,
-                "user_phone" =>$row->user_phone,
-                "user_email" =>$row->user_email,
-                "user_id" =>$row->user_id,
-                "user_type_id"=>$row->user_type_id,
-                "first_login_status"=>$row->first_login_status,
-                "user_status" =>$row->user_status,
-                "login_status" =>TRUE,
-            );
-
-            $this->session->set_userdata($user);
-            $this->session->set_flashdata("success", "Welcome back " .$user["user_first_name"]);
+            
+            $this->session->set_flashdata("success", "Welcome back ");
             return TRUE;
         }
-        else {
-            $this->session->set_flashdata("error","Email or password is incorrect");
+        else
+        {
+            $this->session->set_flashdata("error_message", "Wrong Details ");
+            return FALSE;
+        } 
+
+
+
+        // //run the query
+        // $this->db->where($where);
+        // $query = $this->db->get("user_table");
+
+        // if($query->num_rows()==1)
+        // {
+        //     $row = $query->row();
+        //     $user = array(
+        //         "user_first_name" =>$row->user_first_name,
+        //         "user_last_name" =>$row->user_last_name,
+        //         "user_phone" =>$row->user_phone,
+        //         "user_email" =>$row->user_email,
+        //         "user_id" =>$row->user_id,
+        //         "user_type_id"=>$row->user_type_id,
+        //         "first_login_status"=>$row->first_login_status,
+        //         "user_status" =>$row->user_status,
+        //         "login_status" =>TRUE,
+        //     );
+
+    }
+   //function that validates if a user is logged in or not. When called, if a user is not logged in they are redirected to the login page
+    public function validate_login_session(){
+       
+        if($this->session->userdata('logged_in_user')){
+            return TRUE;
+        }
+        else{
             return FALSE;
         }
     }

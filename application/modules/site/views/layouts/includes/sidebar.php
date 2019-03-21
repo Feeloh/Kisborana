@@ -8,7 +8,7 @@
     <li class="nav-item">
         <a class="nav-link" href="#" >
           <!-- <span data-feather="file"></span> -->
-          <div align="center"><?php echo anchor("member/member","<i class='fas fa-users'> MEMBER</i>", array("class"=> "text-dark", "style"=>"color:black;font-family: 'PT Serif', serif; font-weight:bold;"));?> <span class="sr-only">(current)</span>
+          <div align="center"><?php echo anchor("members/all-members","<i class='fas fa-users'> MEMBER</i>", array("class"=> "text-dark", "style"=>"color:black;font-family: 'PT Serif', serif; font-weight:bold;"));?> <span class="sr-only">(current)</span>
         </div>
         </a>
       </li>
@@ -21,7 +21,7 @@
           </a>
           </div>
 
-          <div align = "right" class="collapse" id="collapseExample"><?php echo anchor("saving_types/index","Saving Types", array("class"=> "text-dark", "style"=>"color:black;font-family: 'PT Serif', serif;"));?> <span class="sr-only">(current)</span>
+          <div align = "right" class="collapse" id="collapseExample"><?php echo anchor("saving-types/all-saving-types","Saving Types", array("class"=> "text-dark", "style"=>"color:black;font-family: 'PT Serif', serif;"));?> <span class="sr-only">(current)</span>
           </div>
 
           <!-- <div align = "right" class="collapse" id="collapseExample"><?php //echo anchor(" ","Members Savings", array("class"=> "text-dark", ));?> <span class="sr-only">(current)</span>
@@ -39,14 +39,14 @@
           </a>
           </div>
 
-          <div align="right" class="collapse" id="collapseExample1"><?php echo anchor("loan_types/loan_types","Loan Types", array("class"=> "text-dark", "style"=>"color:black;font-family: 'PT Serif', serif;"));?> <span class="sr-only">(current)</span>
+          <div align="right" class="collapse" id="collapseExample1"><?php echo anchor("loan-types/all-loan-types","Loan Types", array("class"=> "text-dark", "style"=>"color:black;font-family: 'PT Serif', serif;"));?> <span class="sr-only">(current)</span>
           </div>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
           <!-- <span data-feather="file"></span> -->
-          <div align="right" class="collapse" id="collapseExample1"><?php echo anchor("loans/loans","Loan Management", array("class"=> "text-dark","style"=>"color:black;font-family: 'PT Serif', serif;"));?> <span class="sr-only">(current)</span>
+          <div align="right" class="collapse" id="collapseExample1"><?php echo anchor("loan/all-loans","Loan Management", array("class"=> "text-dark","style"=>"color:black;font-family: 'PT Serif', serif;"));?> <span class="sr-only">(current)</span>
           </div>
         </a>
       </li>
